@@ -4,6 +4,7 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.neural_network import MLPRegressor
 import difflib
+import traceback
 
 SEQ_LENGTH = 5
 
@@ -179,4 +180,6 @@ if csv1:
             st.info(f"⭐ Vice-Captain: {vice_captain['Player']} (Score: {vice_captain['Predicted_Score']:.2f})")
 
     except Exception as e:
-        st.error(f"Error processing data: {e}")
+        st.error(f"Error processing data: {str(e)}")
+        st.error("Full traceback:")
+        st.code(traceback.format_exc())
